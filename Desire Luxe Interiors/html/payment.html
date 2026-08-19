@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Desire Luxe Interiors</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Desire Luxe Interiors</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Payment Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Complete Your Order</h2>
+                
+                <div id="orderSummary" class="card" style="margin-bottom: 30px;">
+                    <!-- Order summary will be loaded here -->
+                </div>
+
+                <form id="paymentForm" onsubmit="placeOrder(); return false;">
+                    <h3 style="color: var(--gold); margin-bottom: 20px;">Payment Method</h3>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="paymentMethod" value="Cash on Delivery" checked>
+                            <span>Cash on Delivery</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="paymentMethod" value="Credit Card">
+                            <span>Credit Card</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="paymentMethod" value="Debit Card">
+                            <span>Debit Card</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="paymentMethod" value="PayPal">
+                            <span>PayPal</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Confirm Order</button>
+                    <a href="products.html" class="btn btn-secondary" style="width: 100%; margin-top: 10px; text-align: center;">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Desire Luxe Interiors</h3>
+                    <p>Premium vehicle interior solutions for the discerning customer.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@desireluxe.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Luxury Street, Premium City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Desire Luxe Interiors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/user.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = checkUserLogin();
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const product = JSON.parse(sessionStorage.getItem('selectedProduct'));
+            if (!product) {
+                window.location.href = 'products.html';
+                return;
+            }
+
+            const orderSummary = document.getElementById('orderSummary');
+            orderSummary.innerHTML = `
+                <h3>Order Summary</h3>
+                <img src="${product.image}" alt="${product.name}" style="width: 100%; max-width: 300px; height: 200px; object-fit: cover; border-radius: 5px; margin: 15px 0;">
+                <p><strong>Product:</strong> ${product.name}</p>
+                <p><strong>Category:</strong> ${product.category} / ${product.subcategory}</p>
+                <p><strong>Description:</strong> ${product.description}</p>
+                <p><strong style="font-size: 24px; color: var(--gold);">Total: $${product.price.toLocaleString()}</strong></p>
+            `;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Desire Luxe Interiors</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Desire Luxe Interiors</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="userMenu">
+                    <span id="userName"></span>
+                    <a href="profile.html">Profile</a>
+                    <a href="orders.html">My Orders</a>
+                    <a href="#" onclick="logoutUser(); return false;">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Orders Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">My Orders</h2>
+            <div id="ordersContainer">
+                <!-- Orders will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Desire Luxe Interiors</h3>
+                    <p>Premium vehicle interior solutions for the discerning customer.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@desireluxe.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Luxury Street, Premium City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Desire Luxe Interiors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/user.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = checkUserLogin();
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            document.getElementById('userName').textContent = user.name;
+            loadUserOrders();
+        });
+    </script>
+</body>
+</html>
