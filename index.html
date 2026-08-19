@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Bridge — Freight, Delivery & Logistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0B1C2C',
+          steel: '#16283C',
+          steelLine: '#2A3F58',
+          fog: '#F5F7FA',
+          slate: '#5B6B7C',
+          beacon: '#FFA630',
+          beaconDark: '#E08A12',
+          route: '#3DDC97',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+
+  .route-dash {
+    stroke-dasharray: 6 8;
+    animation: dash-move 2.4s linear infinite;
+  }
+  @keyframes dash-move {
+    to { stroke-dashoffset: -140; }
+  }
+  .beacon-dot {
+    animation: beacon-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes beacon-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+  .beacon-travel {
+    offset-path: path('M 4 90 C 90 10, 180 150, 300 60');
+    animation: travel 5s linear infinite;
+  }
+  @keyframes travel {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .route-dash, .beacon-dot, .beacon-travel { animation: none !important; }
+  }
+
+  .divider-line {
+    background-image: repeating-linear-gradient(to right, #2A3F58 0, #2A3F58 6px, transparent 6px, transparent 14px);
+    height: 1px;
+  }
+  .divider-line-light {
+    background-image: repeating-linear-gradient(to right, #D7DEE6 0, #D7DEE6 6px, transparent 6px, transparent 14px);
+    height: 1px;
+  }
+</style>
+</head>
+<body class="bg-fog text-ink antialiased">
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 bg-fog/90 backdrop-blur border-b border-slate/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2.5">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="5" cy="21" r="2.5" fill="#0B1C2C"/>
+        <circle cx="23" cy="7" r="2.5" fill="#FFA630"/>
+        <path d="M5 21C5 21 9 9 23 7" stroke="#0B1C2C" stroke-width="2" stroke-dasharray="3 4" fill="none"/>
+      </svg>
+      <span class="font-display font-700 text-xl tracking-tight">SKY BRIDGE</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-ink/80">
+      <a href="#services" class="hover:text-ink transition-colors">Services</a>
+      <a href="#why-us" class="hover:text-ink transition-colors">Why Us</a>
+      <a href="#quote" class="hover:text-ink transition-colors">Track</a>
+      <a href="#quote" class="hover:text-ink transition-colors">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="tel:+15550182947" class="hidden sm:block font-mono text-sm text-ink/70">+1 (555) 018-2947</a>
+      <a href="#quote" class="bg-beacon hover:bg-beaconDark text-ink font-display font-600 text-sm px-5 py-2.5 rounded-md transition-colors">Get a Free Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative bg-ink text-fog overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-20 lg:pt-24 lg:pb-28 grid lg:grid-cols-2 gap-14 items-center">
+    <div>
+      <p class="font-mono text-xs tracking-[0.2em] text-beacon uppercase mb-5">Freight · Fleet · Fulfillment</p>
+      <h1 class="font-display font-700 text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] tracking-tight">
+        Every shipment<br>finds its bridge.
+      </h1>
+      <p class="mt-6 text-lg text-fog/70 max-w-lg leading-relaxed">
+        Sky Bridge moves freight across town or across the country — tracked door to door, on schedule, every time. Local courier runs, long-distance hauling, and full freight shipping, all under one dispatch.
+      </p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-4">
+        <a href="#quote" class="text-center bg-beacon hover:bg-beaconDark text-ink font-display font-600 px-7 py-3.5 rounded-md transition-colors">Get a Free Quote</a>
+        <a href="#quote" class="text-center border border-fog/25 hover:border-fog/60 font-display font-600 px-7 py-3.5 rounded-md transition-colors">Track a Shipment</a>
+      </div>
+
+      <dl class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-fog/10 pt-8">
+        <div>
+          <dt class="font-mono text-[11px] tracking-wider text-fog/50 uppercase">On-time</dt>
+          <dd class="font-display font-700 text-2xl text-beacon mt-1">98.7%</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[11px] tracking-wider text-fog/50 uppercase">Active fleet</dt>
+          <dd class="font-display font-700 text-2xl text-beacon mt-1">240+</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[11px] tracking-wider text-fog/50 uppercase">Cities served</dt>
+          <dd class="font-display font-700 text-2xl text-beacon mt-1">60+</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[11px] tracking-wider text-fog/50 uppercase">Avg. response</dt>
+          <dd class="font-display font-700 text-2xl text-beacon mt-1">&lt;2 hrs</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Route visual -->
+    <div class="relative">
+      <div class="bg-steel border border-steelLine rounded-2xl p-6 sm:p-8">
+        <div class="flex items-center justify-between font-mono text-[11px] tracking-wider text-fog/50 uppercase mb-6">
+          <span>Live route</span>
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-route beacon-dot"></span>In transit</span>
+        </div>
+        <svg viewBox="0 0 300 170" class="w-full h-auto">
+          <path d="M 4 90 C 90 10, 180 150, 300 60" stroke="#2A3F58" stroke-width="2" fill="none"/>
+          <path class="route-dash" d="M 4 90 C 90 10, 180 150, 300 60" stroke="#3DDC97" stroke-width="2" fill="none" opacity="0.7"/>
+          <circle cx="4" cy="90" r="5" fill="#F5F7FA"/>
+          <circle cx="150" cy="98" r="5" fill="#F5F7FA" opacity="0.6"/>
+          <circle cx="300" cy="60" r="5" fill="#FFA630"/>
+          <circle r="4" fill="#FFA630" class="beacon-travel"/>
+        </svg>
+        <div class="flex justify-between font-mono text-xs text-fog/70 mt-2">
+          <div>
+            <p class="text-fog/40 text-[10px] uppercase">Origin</p>
+            <p>Denver, CO</p>
+          </div>
+          <div class="text-center">
+            <p class="text-fog/40 text-[10px] uppercase">Hub</p>
+            <p>Kansas City, MO</p>
+          </div>
+          <div class="text-right">
+            <p class="text-fog/40 text-[10px] uppercase">Destination</p>
+            <p>Columbus, OH</p>
+          </div>
+        </div>
+        <div class="divider-line mt-6 mb-5"></div>
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="font-mono text-[11px] text-fog/40 uppercase">Load</p>
+            <p class="font-medium text-sm">Palletized freight · 2,400 lb</p>
+          </div>
+          <div class="text-right">
+            <p class="font-mono text-[11px] text-fog/40 uppercase">ETA</p>
+            <p class="font-medium text-sm text-beacon">Tomorrow, 4:15 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+  <div class="max-w-2xl">
+    <p class="font-mono text-xs tracking-[0.2em] text-beaconDark uppercase mb-4">What we move</p>
+    <h2 class="font-display font-700 text-3xl sm:text-4xl tracking-tight">Services built around your freight, not the other way around.</h2>
+  </div>
+
+  <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <!-- Local Delivery -->
+    <div class="group bg-white border border-slate/15 rounded-xl p-6 hover:border-ink/30 transition-colors">
+      <span class="inline-block font-mono text-[11px] font-600 bg-ink text-fog px-2 py-1 rounded">LD</span>
+      <h3 class="font-display font-600 text-lg mt-4">Local Delivery</h3>
+      <p class="text-sm text-slate mt-2 leading-relaxed">Same-day pickup and drop-off across the metro area, with live ETA updates for every stop on the route.</p>
+    </div>
+    <!-- Long-Distance Hauling -->
+    <div class="group bg-white border border-slate/15 rounded-xl p-6 hover:border-ink/30 transition-colors">
+      <span class="inline-block font-mono text-[11px] font-600 bg-ink text-fog px-2 py-1 rounded">LH</span>
+      <h3 class="font-display font-600 text-lg mt-4">Long-Distance Hauling</h3>
+      <p class="text-sm text-slate mt-2 leading-relaxed">Full and partial truckload hauling coast to coast, backed by a vetted carrier network and dedicated dispatch.</p>
+    </div>
+    <!-- Freight Shipping -->
+    <div class="group bg-white border border-slate/15 rounded-xl p-6 hover:border-ink/30 transition-colors">
+      <span class="inline-block font-mono text-[11px] font-600 bg-ink text-fog px-2 py-1 rounded">FR</span>
+      <h3 class="font-display font-600 text-lg mt-4">Freight Shipping</h3>
+      <p class="text-sm text-slate mt-2 leading-relaxed">LTL and FTL solutions for pallets, equipment, and oversized loads — quoted transparently, no hidden fees.</p>
+    </div>
+    <!-- Cargo Tracking -->
+    <div class="group bg-white border border-slate/15 rounded-xl p-6 hover:border-ink/30 transition-colors">
+      <span class="inline-block font-mono text-[11px] font-600 bg-ink text-fog px-2 py-1 rounded">CT</span>
+      <h3 class="font-display font-600 text-lg mt-4">Cargo Tracking</h3>
+      <p class="text-sm text-slate mt-2 leading-relaxed">Real-time GPS visibility on every load, with automated status alerts from pickup to proof of delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section id="why-us" class="bg-ink text-fog py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl">
+      <p class="font-mono text-xs tracking-[0.2em] text-beacon uppercase mb-4">Why shippers trust sky bridge</p>
+      <h2 class="font-display font-700 text-3xl sm:text-4xl tracking-tight">Reliability isn't a promise. It's a system.</h2>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-px bg-steelLine rounded-xl overflow-hidden">
+      <!-- Safety -->
+      <div class="bg-ink p-8">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFA630" stroke-width="1.6">
+          <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/>
+        </svg>
+        <h3 class="font-display font-600 text-lg mt-5">Safety</h3>
+        <p class="text-sm text-fog/60 mt-2 leading-relaxed">Every driver is background-checked, every load insured, every route reviewed. Our safety record is audited quarterly — and it shows.</p>
+      </div>
+      <!-- Punctuality -->
+      <div class="bg-ink p-8">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFA630" stroke-width="1.6">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3.5 2"/>
+        </svg>
+        <h3 class="font-display font-600 text-lg mt-5">Punctuality</h3>
+        <p class="text-sm text-fog/60 mt-2 leading-relaxed">98.7% on-time performance, powered by predictive dispatch and real schedule buffers — not luck.</p>
+      </div>
+      <!-- 24/7 Support -->
+      <div class="bg-ink p-8">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFA630" stroke-width="1.6">
+          <path d="M4 13a8 8 0 0116 0"/>
+          <rect x="3" y="13" width="4" height="6" rx="1"/>
+          <rect x="17" y="13" width="4" height="6" rx="1"/>
+        </svg>
+        <h3 class="font-display font-600 text-lg mt-5">24/7 Support</h3>
+        <p class="text-sm text-fog/60 mt-2 leading-relaxed">A real dispatcher answers, day or night. Tracking questions and emergency rerouting are always one call away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / QUOTE FORM ============ -->
+<section id="quote" class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+  <div class="max-w-2xl">
+    <p class="font-mono text-xs tracking-[0.2em] text-beaconDark uppercase mb-4">Get moving</p>
+    <h2 class="font-display font-700 text-3xl sm:text-4xl tracking-tight">Request your free quote</h2>
+    <p class="text-slate mt-4">Tell us what you're shipping and where it needs to go. A dispatcher will get back to you within two business hours.</p>
+  </div>
+
+  <div class="mt-12 grid lg:grid-cols-5 gap-8">
+    <!-- Info card -->
+    <div class="lg:col-span-2 bg-ink text-fog rounded-2xl p-8 h-fit">
+      <p class="font-mono text-[11px] tracking-wider text-fog/40 uppercase">Dispatch office</p>
+      <h3 class="font-display font-600 text-xl mt-2">Sky Bridge HQ</h3>
+      <div class="divider-line my-6"></div>
+      <ul class="space-y-5 text-sm">
+        <li>
+          <p class="font-mono text-[11px] text-fog/40 uppercase">Phone</p>
+          <a href="tel:+15550182947" class="text-fog/85">+1 (555) 018-2947</a>
+        </li>
+        <li>
+          <p class="font-mono text-[11px] text-fog/40 uppercase">Email</p>
+          <a href="mailto:dispatch@skybridge.com" class="text-fog/85">dispatch@skybridge.com</a>
+        </li>
+        <li>
+          <p class="font-mono text-[11px] text-fog/40 uppercase">Address</p>
+          <p class="text-fog/85">4820 Freight Yard Road, Kansas City, MO 64120</p>
+        </li>
+        <li>
+          <p class="font-mono text-[11px] text-fog/40 uppercase">Hours</p>
+          <p class="text-fog/85">Dispatch: 24/7 · Office: Mon–Fri, 7am–6pm</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Form -->
+    <form class="lg:col-span-3 bg-white border border-slate/15 rounded-2xl p-8 grid sm:grid-cols-2 gap-5">
+      <div class="sm:col-span-1">
+        <label class="block text-sm font-medium mb-1.5" for="name">Full name</label>
+        <input id="name" name="name" type="text" required placeholder="Jordan Ramirez"
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent">
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-sm font-medium mb-1.5" for="company">Company <span class="text-slate/60 font-normal">(optional)</span></label>
+        <input id="company" name="company" type="text" placeholder="Ramirez Supply Co."
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent">
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-sm font-medium mb-1.5" for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@company.com"
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent">
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-sm font-medium mb-1.5" for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567"
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent">
+      </div>
+      <div class="sm:col-span-2">
+        <label class="block text-sm font-medium mb-1.5" for="service">Service needed</label>
+        <select id="service" name="service"
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent">
+          <option>Local Delivery</option>
+          <option>Long-Distance Hauling</option>
+          <option>Freight Shipping</option>
+          <option>Cargo Tracking</option>
+          <option>Other / Not sure</option>
+        </select>
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-sm font-medium mb-1.5" for="pickup">Pickup location</label>
+        <input id="pickup" name="pickup" type="text" placeholder="City, State"
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent">
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-sm font-medium mb-1.5" for="destination">Destination</label>
+        <input id="destination" name="destination" type="text" placeholder="City, State"
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent">
+      </div>
+      <div class="sm:col-span-2">
+        <label class="block text-sm font-medium mb-1.5" for="details">Shipment details</label>
+        <textarea id="details" name="details" rows="4" placeholder="What are you shipping? Weight, dimensions, timeline, and anything else we should know."
+          class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-beacon focus:border-transparent resize-none"></textarea>
+      </div>
+      <div class="sm:col-span-2">
+        <button type="submit" class="w-full sm:w-auto bg-beacon hover:bg-beaconDark text-ink font-display font-600 px-8 py-3 rounded-md transition-colors">
+          Request Free Quote
+        </button>
+        <p class="text-xs text-slate/60 mt-3">By submitting, you agree to be contacted by Sky Bridge regarding your quote request.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-fog/60">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5">
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+          <circle cx="5" cy="21" r="2.5" fill="#F5F7FA"/>
+          <circle cx="23" cy="7" r="2.5" fill="#FFA630"/>
+          <path d="M5 21C5 21 9 9 23 7" stroke="#F5F7FA" stroke-width="2" stroke-dasharray="3 4" fill="none"/>
+        </svg>
+        <span class="font-display font-700 text-lg text-fog">SKY BRIDGE</span>
+      </div>
+      <p class="text-sm mt-4 leading-relaxed">Reliable freight, delivery, and logistics — connecting every origin to every destination, on time.</p>
+    </div>
+    <div>
+      <p class="font-mono text-[11px] tracking-wider text-fog/40 uppercase mb-4">Company</p>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="#" class="hover:text-fog transition-colors">About Us</a></li>
+        <li><a href="#" class="hover:text-fog transition-colors">Careers</a></li>
+        <li><a href="#" class="hover:text-fog transition-colors">Fleet</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-mono text-[11px] tracking-wider text-fog/40 uppercase mb-4">Services</p>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="#services" class="hover:text-fog transition-colors">Local Delivery</a></li>
+        <li><a href="#services" class="hover:text-fog transition-colors">Long-Distance Hauling</a></li>
+        <li><a href="#services" class="hover:text-fog transition-colors">Freight Shipping</a></li>
+        <li><a href="#services" class="hover:text-fog transition-colors">Cargo Tracking</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-mono text-[11px] tracking-wider
