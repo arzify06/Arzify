@@ -1,0 +1,213 @@
+/* ==========================================================================
+   DESIRE TRAVEL - INTERACTIVE BUS SEAT LAYOUT SYSTEM
+   ========================================================================== */
+
+.bus-cabin-wrapper {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 480px;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+body.theme-dark .bus-cabin-wrapper {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+/* Front Cabin & Driver */
+.bus-front-cabin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed #cbd5e1;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.driver-wheel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+body.theme-dark .driver-wheel {
+  background: #0f172a;
+  color: #94a3b8;
+}
+
+.bus-door {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #059669;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #ecfdf5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #a7f3d0;
+}
+
+/* Seat Legend */
+.seat-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+body.theme-dark .seat-legend {
+  background: #0f172a;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.legend-box.available {
+  background: #f8fafc;
+  border: 1.5px solid #64748b;
+}
+
+.legend-box.selected {
+  background: #10b981;
+  border: 1.5px solid #059669;
+}
+
+.legend-box.booked {
+  background: #f87171;
+  border: 1.5px solid #ef4444;
+}
+
+/* Seat Grid */
+.seat-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.seat-row .seat-pair {
+  display: flex;
+  gap: 8px;
+}
+
+.seat-row .seat-aisle {
+  width: 24px;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+/* Individual Seat Box */
+.seat-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 2px solid #94a3b8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+body.theme-dark .seat-box {
+  background: #0f172a;
+  border-color: #475569;
+  color: #f8fafc;
+}
+
+.seat-box .seat-no {
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.seat-box .seat-icon {
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+/* Available Hover */
+.seat-box.available:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Selected Seat */
+.seat-box.selected {
+  background: #10b981 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.seat-box.selected .seat-icon,
+.seat-box.selected .seat-no {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
+/* Booked / Occupied Seat */
+.seat-box.booked {
+  background: #fee2e2 !important;
+  border-color: #f87171 !important;
+  color: #991b1b !important;
+  cursor: not-allowed !important;
+  opacity: 0.75;
+}
+
+body.theme-dark .seat-box.booked {
+  background: #450a0a !important;
+  border-color: #991b1b !important;
+  color: #fca5a5 !important;
+}
+
+.seat-box.booked::after {
+  content: '✕';
+  position: absolute;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #dc2626;
+  opacity: 0.6;
+}
