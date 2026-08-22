@@ -1,154 +1,122 @@
-# 🚌 Desire Travel - Premium Bus Fleet & Reservation System
+# Vipul Shekhva — Developer Portfolio
 
-<div align="center">
-  <img src="assets/images/logo.svg" alt="Desire Travel Logo" width="380"/>
-  <p><strong>A Modern, Secure &amp; Comprehensive Intercity Bus Reservation &amp; Fleet Management Portal</strong></p>
-  
-  [![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
-  [![MySQL](https://img.shields.io/badge/MySQL-MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
-  [![Bootstrap 5](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
-  [![Multi-Language](https://img.shields.io/badge/Language-English%20%7C%20%E0%AA%97%E0%AB%81%E0%AA%9C%E0%AA%B0%E0%AA%BE%E0%AA%A4%E0%AB%80-orange?style=for-the-badge)](https://github.com)
-  [![Themes](https://img.shields.io/badge/Themes-5%20Color%20Palettes-blueviolet?style=for-the-badge)](https://github.com)
-</div>
+Modern responsive portfolio built with **HTML, CSS and JavaScript**.
 
----
+## Included features
 
-## 🌟 Highlights & Features
+- Floating profile card using `assets/profile.jpg`
+- Orbit animations around the profile
+- Animated technology marquee
+- Scroll-reveal effects
+- Skills / toolkit cards
+- TRUEBANK project section
+- DESIRE TRAVELS project section
+- Bus Travellers project
+- Portfolio project
+- Education journey: **BCA 2023–2026 → MCA → Future: Developer**
+- Responsive mobile navigation
+- Scroll progress bar
+- Cursor glow
+- Hover animations
+- Responsive contact form
+- LinkedIn / Instagram / WhatsApp / Phone placeholders
+- Modern responsive navigation
+- Reduced-motion accessibility support
 
-### 🌐 1. Bilingual Localization (English & ગુજરાતી)
-- Seamless one-click toggle between **English** and **Gujarati (ગુજરાતી)** across all forms, tables, boarding passes, buttons, and alert messages.
+## Folder structure
 
-### 🎨 2. Dynamic 5-Theme Palette Switcher
-- Choose from 5 themes with instant persistence across sessions:
-  - 🔵 **Royal Navy Blue** (Default Executive Corporate)
-  - 🟢 **Emerald Green** (Fresh Modern Eco)
-  - 🔴 **Luxury Crimson** (VIP Travel Express)
-  - 🌌 **Cyber Dark Mode** (High-Contrast Night Mode)
-  - 🟠 **Sunset Amber** (Warm Energetic)
-
-### 🪑 3. Interactive Visual Bus Seat Reservation
-- Real-time visual seat map showing driver cabin, passenger entry door, booked seats in **Red (✕)**, available seats in **White/Gray**, and chosen seats in **Vibrant Green**.
-- Live seat counter and dynamic payable fare calculation.
-
-### 📏 4. Dynamic Distance-Based Tiered Fare Engine
-- Intelligent fare structure:
-  - **First 5 km**: Flat ₹5.00 base fare
-  - **5 – 15 km**: +₹2.00 per km
-  - **Beyond 15 km**: +₹1.00 per km
-  - **Bus Multiplier**: 1.25x for Luxury Volvo Multi-Axle & AC Sleeper coaches.
-
----
-
-## 🏢 Role-Based Modules Breakdown
-
-### 🔐 Authentication & Audit Telemetry
-- **Login Portal**: Secure Bcrypt password validation, session fixation protection, and demo quick sign-in buttons.
-- **Employee Login Activity**: Detailed audit trail tracking employee username, login timestamp, logout timestamp, session duration, and client IP address.
-
-### 👑 Admin Panel
-- **Dashboard**: Real-time KPI summary (Total Gross Revenue, Active Buses, Total Routes, Scheduled Trips, Today's Bookings).
-- **Bus Fleet Management**: Register, view, update, and delete buses (Bus No, Type, Capacity, Driver contact) with duplicate number validation.
-- **Route Management**: Add and manage travel corridors (Origin, Destination, Distance in km, Duration).
-- **Routine Scheduling**: Schedule buses on routes, dates, departure/arrival times, and fares with automatic conflict detection.
-- **Staff & Employees**: Register staff, assign roles (`admin` / `employee`), toggle account statuses.
-- **Booking & Revenue Reports**: Multi-filter report generator with date range, route, bus, and status filters with **CSV Spreadsheet** and **PDF / Print** export.
-
-### 🎫 Employee & Counter Panel
-- **Counter Dashboard**: Dynamic session time, today's counter sales metrics, and fast navigation shortcuts.
-- **Customer Registry**: Register and manage passenger profiles with unique CNIC/ID and email validation.
-- **Book Ticket Window**: 3-step interactive booking workflow with live seat map and instant boarding pass generation.
-- **Cancel Booking**: Search booking by Ticket Number or Phone, cancel reservation, calculate refund, and immediately release seats for re-booking.
-- **Issued Tickets**: View past bookings, verify QR code boarding passes, and reprint tickets.
-- **Route Inquiry**: Search available buses, timings, and fares between any source and destination city.
-- **Price List & Calculator**: Official fare table with interactive kilometer calculator.
-- **Change Password**: Self-service secure password update.
-
----
-
-## 📂 Project Architecture
-
-```
-Desire Travel/
-├── config/
-│   ├── config.php             # Core app settings, theme & language state
-│   ├── database.php           # Resilient PDO connection with multi-port fallback
-│   └── languages/
-│       ├── en.php             # English dictionary
-│       └── gu.php             # Gujarati dictionary (ગુજરાતી)
-├── helpers/
-│   ├── auth.php               # Session, role guard & employee login logger
-│   ├── lang.php               # Language translation helper __()
-│   ├── fare_calculator.php    # Tiered distance fare formula
-│   └── ticket_generator.php   # Printable boarding pass & QR code generator
-├── assets/
-│   ├── css/
-│   │   ├── style.css          # Master stylesheet with 5 color themes
-│   │   └── seat-layout.css    # Interactive bus seat layout CSS
-│   ├── js/
-│   │   ├── main.js            # Theme switcher, live clock, table search
-│   │   └── booking.js         # Interactive seat map & live price math
-│   └── images/
-│       └── logo.svg           # Vector luxury brand logo
-├── database/
-│   └── database.sql           # Complete schema and rich seed demo data
-├── admin/
-│   ├── dashboard.php          # Admin analytics & telemetry
-│   ├── buses.php              # Bus fleet CRUD
-│   ├── routes.php             # Travel routes CRUD
-│   ├── routines.php           # Bus routines / schedules CRUD
-│   ├── employees.php          # Staff directory & roles CRUD
-│   ├── login_logs.php         # Employee login activity & log pruning
-│   └── booking_reports.php    # Financial & booking reports with CSV/Print
-├── employee/
-│   ├── dashboard.php          # Employee counter desk
-│   ├── customers.php          # Passenger registry CRUD
-│   ├── booking.php            # Interactive seat reservation window
-│   ├── cancel_booking.php     # Ticket cancellation & seat release
-│   ├── tickets.php            # Issued tickets & boarding pass reprints
-│   ├── inquiry.php            # Bus route & schedule lookup
-│   ├── price_list.php         # Fare charts & live distance calculator
-│   └── change_password.php    # Secure password change
-├── index.php                  # Main entry point & login portal
-├── logout.php                 # Sign out handler
-├── .gitignore                 # Standard git ignore configuration
-└── README.md                  # Project documentation
+```text
+portfolio/
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── assets/
+    └── profile.jpg
 ```
 
----
+## Profile photo
 
-## 🚀 Quick Setup & Installation
+Create an `assets` folder beside `index.html` and place your photo at:
 
-### 1. Prerequisites
-- PHP 8.0 or higher (with `pdo_mysql`, `session`, `mbstring` extensions enabled)
-- MySQL / MariaDB (e.g. XAMPP, WAMP, Laragon, or standalone MySQL)
-- Web Browser (Chrome, Firefox, Edge, Safari)
+`assets/profile.jpg`
 
-### 2. Database Import
-1. Start MySQL in your XAMPP control panel.
-2. Open phpMyAdmin (`http://localhost/phpmyadmin`) or MySQL CLI.
-3. Import the file located at `database/database.sql`.
-   *(Or the system will automatically create and migrate tables on first run!)*
+The portfolio already points to that exact path.
 
-### 3. Running the Application
-Place the folder in your web server root (e.g. `C:/xampp/htdocs/Desire Travel`) or run PHP's built-in web server:
+## Contact email setup
 
-```bash
-# From project directory
-php -S localhost:8000
-```
-Open your browser and visit: `http://localhost:8000` or `http://localhost/Desire%20Travel`
+The contact form currently uses the browser's `mailto:` functionality.
 
----
+Open `script.js` and replace:
 
-## 🔑 Default Demo Credentials
+`const CONTACT_EMAIL="YOUR_EMAIL@example.com";`
 
-| Role | Username | Password | Access Level |
-|---|---|---|---|
-| **Administrator** | `admin` | `admin123` | Full Fleet, Route, Employee & Financial Control |
-| **Booking Staff** | `emp` | `emp123` | Ticket Issuing, Seat Map, Inquiry & Passenger Registry |
-| **Ticket Clerk** | `clerk1` | `clerk123` | Ticket Counter Operations |
+with the email address where you want to receive messages.
 
----
+Example:
 
-## 📄 License & Credits
-Built for **Desire Travel**. Designed and developed with modern PHP, MySQL, and clean CSS architecture.
+`const CONTACT_EMAIL="yourname@gmail.com";`
+
+### Important
+
+A pure HTML/CSS/JS website cannot securely send email directly from a browser without an email service or backend. The current `mailto:` setup opens the visitor's configured email application.
+
+For automatic server-side delivery without opening an email app, connect the form to a service such as Formspree, Web3Forms, EmailJS, or your own PHP mail endpoint.
+
+## Social links
+
+Update the placeholder links in `index.html`:
+
+- LinkedIn: `https://www.linkedin.com/`
+- Instagram: `https://www.instagram.com/`
+- WhatsApp: `https://wa.me/`
+- Phone: `tel:+910000000000`
+
+Replace them with your real profile/phone links.
+
+## Run locally
+
+1. Put all files in one project folder.
+2. Add `assets/profile.jpg`.
+3. Set `CONTACT_EMAIL` in `script.js`.
+4. Open `index.html` in a browser.
+
+For a better local development experience, use VS Code + Live Server.
+
+## Free static hosting
+
+This project can be hosted as a static site on GitHub Pages, Netlify, or Cloudflare Pages.
+
+If you later add PHP, a database, or a server-side email endpoint, use PHP-compatible hosting instead.
+
+## Customization
+
+Main visual settings are at the top of `style.css`:
+
+- `--accent` — neon green
+- `--cyan` — cyan highlight
+- `--bg` — page background
+- `--card` — card background
+- `--display` — heading font
+- `--mono` — body/code font
+
+Project text, social URLs and education details are in `index.html`.
+
+
+## Latest customizations
+
+- Global `h1`–`h6` typography uses `var(--display)` with 700 weight and 1.1 line-height.
+- Hero slide includes a downloadable resume button and LinkedIn, WhatsApp, Email, Instagram and Phone icons.
+- Contact details appear immediately before the contact form with Lucide map-pin, phone and mail icons.
+- Contact social cards use the supplied LinkedIn, Instagram, WhatsApp and phone destinations.
+- Contact form recipient is configured as `jigneshrathod1102@gmail.com` in `script.js`.
+- Resume button points to `https://jigneshrathod.vercel.app/jignesh_rathod_flutter_developer_resume-2.pdf`.
+
+
+## Resume
+
+The uploaded resume is included in `assets/resume.pdf`. The hero **Download Resume** button points to this local file.
+
+## Social icon styling
+
+Hero social icons are white by default, have visible spacing between each icon, and turn accent-colored on hover.
