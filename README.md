@@ -1,122 +1,83 @@
-# Vipul Shekhva — Developer Portfolio
+# Arzify — Video Editing Studio Website
 
-Modern responsive portfolio built with **HTML, CSS and JavaScript**.
+A responsive, multi-page static website built around the supplied Arzify logo and promotional poster.
 
-## Included features
+## Pages
 
-- Floating profile card using `assets/profile.jpg`
-- Orbit animations around the profile
-- Animated technology marquee
-- Scroll-reveal effects
-- Skills / toolkit cards
-- TRUEBANK project section
-- DESIRE TRAVELS project section
-- Bus Travellers project
-- Portfolio project
-- Education journey: **BCA 2023–2026 → MCA → Future: Developer**
-- Responsive mobile navigation
-- Scroll progress bar
-- Cursor glow
-- Hover animations
+- Home
+- About
+- Services
+  - Video Editing
+  - Post Production
+  - Ghost Editing
+  - Mentoring
+  - 30 Seconds Of…
+- Portfolio
+- Process
+- Testimonials
+- Blog
+- Contact
+- Privacy Policy
+- Terms & Conditions
+
+## Included
+
+- Arzify logo used in navigation, footer and favicon
+- Supplied Arzify promotional poster used as the main visual asset
+- Dark black + rose/pink/purple visual system
+- Responsive desktop/tablet/mobile navigation
+- Services dropdown
+- Animated technology/tool marquee
+- Scroll reveal animations
+- Scroll progress indicator
+- Desktop cursor glow
+- Hover interactions
+- Reduced-motion support
 - Responsive contact form
-- LinkedIn / Instagram / WhatsApp / Phone placeholders
-- Modern responsive navigation
-- Reduced-motion accessibility support
-
-## Folder structure
-
-```text
-portfolio/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── assets/
-    └── profile.jpg
-```
-
-## Profile photo
-
-Create an `assets` folder beside `index.html` and place your photo at:
-
-`assets/profile.jpg`
-
-The portfolio already points to that exact path.
-
-## Contact email setup
-
-The contact form currently uses the browser's `mailto:` functionality.
-
-Open `script.js` and replace:
-
-`const CONTACT_EMAIL="YOUR_EMAIL@example.com";`
-
-with the email address where you want to receive messages.
-
-Example:
-
-`const CONTACT_EMAIL="yourname@gmail.com";`
-
-### Important
-
-A pure HTML/CSS/JS website cannot securely send email directly from a browser without an email service or backend. The current `mailto:` setup opens the visitor's configured email application.
-
-For automatic server-side delivery without opening an email app, connect the form to a service such as Formspree, Web3Forms, EmailJS, or your own PHP mail endpoint.
-
-## Social links
-
-Update the placeholder links in `index.html`:
-
-- LinkedIn: `https://www.linkedin.com/`
-- Instagram: `https://www.instagram.com/`
-- WhatsApp: `https://wa.me/`
-- Phone: `tel:+910000000000`
-
-Replace them with your real profile/phone links.
+- Instagram, WhatsApp, phone and email links
+- PHP `contact.php` endpoint for PHP hosting
+- Browser `mailto:` fallback in `script.js`
+- No build process required
 
 ## Run locally
 
-1. Put all files in one project folder.
-2. Add `assets/profile.jpg`.
-3. Set `CONTACT_EMAIL` in `script.js`.
-4. Open `index.html` in a browser.
+Open `index.html` directly in a browser, or use VS Code Live Server.
 
-For a better local development experience, use VS Code + Live Server.
+## Contact email
 
-## Free static hosting
+The site is configured for:
 
-This project can be hosted as a static site on GitHub Pages, Netlify, or Cloudflare Pages.
+`arzify06@gmail.com`
 
-If you later add PHP, a database, or a server-side email endpoint, use PHP-compatible hosting instead.
+The static form in `script.js` uses `mailto:` so it opens the visitor's configured email application.
 
-## Customization
+For automatic server-side delivery, host the site on PHP hosting and connect the form to `contact.php`. The PHP endpoint uses `mail()` and sends to `arzify06@gmail.com`. Your hosting provider must have PHP mail configured.
 
-Main visual settings are at the top of `style.css`:
+## Social links
 
-- `--accent` — neon green
-- `--cyan` — cyan highlight
-- `--bg` — page background
-- `--card` — card background
-- `--display` — heading font
-- `--mono` — body/code font
+Current placeholders/configured links:
 
-Project text, social URLs and education details are in `index.html`.
+- Instagram: https://www.instagram.com/arzifyy
+- WhatsApp: https://wa.me/919321020031
+- Phone: tel:+919321020031
 
+Update these in the HTML if the final accounts differ.
 
-## Latest customizations
+## Replacing images
 
-- Global `h1`–`h6` typography uses `var(--display)` with 700 weight and 1.1 line-height.
-- Hero slide includes a downloadable resume button and LinkedIn, WhatsApp, Email, Instagram and Phone icons.
-- Contact details appear immediately before the contact form with Lucide map-pin, phone and mail icons.
-- Contact social cards use the supplied LinkedIn, Instagram, WhatsApp and phone destinations.
-- Contact form recipient is configured as `jigneshrathod1102@gmail.com` in `script.js`.
-- Resume button points to `https://jigneshrathod.vercel.app/jignesh_rathod_flutter_developer_resume-2.pdf`.
+- `assets/arzify-logo.jpg` — logo
+- `assets/arzify-poster.jpg` — supplied promotional poster
 
+Replace project images in `portfolio.html` with your real portfolio thumbnails when available.
 
-## Resume
+## Important publishing note
 
-The uploaded resume is included in `assets/resume.pdf`. The hero **Download Resume** button points to this local file.
+The Privacy Policy and Terms pages are starter website copy, not legal advice. Review them against your actual business practices before publishing.
 
-## Social icon styling
-
-Hero social icons are white by default, have visible spacing between each icon, and turn accent-colored on hover.
+### Visual & interaction updates
+- Arzify wordmark uses a rose-gold/pink metallic gradient inspired by the supplied poster.
+- Browser scrollbar is customized to match the black, rose-gold and pink theme.
+- Navigation highlights the current page and animates the selected menu item.
+- Dropdown service links receive animated active/hover states.
+- Desktop cursor has a smooth rose-gold ring, glowing dot, and interactive hover expansion.
+- Reduced-motion accessibility remains supported.

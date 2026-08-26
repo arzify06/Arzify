@@ -1,562 +1,352 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#080b0a" />
-    <title>Vipul Shekhva | Developer Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070709" />
     <meta
       name="description"
-      content="Vipul Shekhva — MCA student and future developer. Explore skills, projects and contact information."
+      content="Arzify — bespoke video editing, post production, ghost editing, mentoring and short-form storytelling."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-L6SM88K8JS"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-L6SM88K8JS");
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NC77XNBD");
-    </script>
-    <!-- End Google Tag Manager -->
+    <link rel="icon" type="image/jpeg" href="assets/arzify-logo.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Home | Arzify</title>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NC77XNBD"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div class="cursor-glow" id="cursor-glow"></div>
-    <div class="scroll-progress-container">
-      <div class="scroll-progress" id="scroll-progress"></div>
-    </div>
-
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#home" class="logo">&lt; Vipul /&gt;</a>
-        <div class="nav-links">
-          <a href="#about">About</a><a href="#skills">Skills</a
-          ><a href="#projects">Projects</a><a href="#journey">Journey</a
-          ><a href="#contact">Contact</a>
-        </div>
-        <a href="#contact" class="btn btn-nav">LET'S CHAT</a>
-        <button
-          class="mobile-toggle"
-          id="mobile-toggle"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-        >
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="progress"></div>
+    <div class="cursor-glow"></div>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Arzify home">
+          <img src="assets/arzify-logo.jpg" alt="Arzify logo" />
+          <span>Arzify</span>
+        </a>
+        <button class="menu-btn" aria-label="Open menu" aria-expanded="false">
           ☰
         </button>
-      </div>
-      <div class="mobile-nav" id="mobile-nav">
-        <a href="#about" class="mobile-link">About</a
-        ><a href="#skills" class="mobile-link">Skills</a
-        ><a href="#projects" class="mobile-link">Projects</a
-        ><a href="#journey" class="mobile-link">Journey</a
-        ><a href="#contact" class="mobile-link">Contact</a>
-      </div>
-    </nav>
-
-    <main>
-      <section class="hero" id="home">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="hero-container container">
-          <div class="hero-left">
-            <p class="greeting reveal-text">HELLO, I'M VIPUL SHEKHVA</p>
-            <h1 class="role-headline reveal-text">
-              Computer Engineering<br /><span> Student</span>
-            </h1>
-            <div class="quote-block reveal-text">
-              <em
-                >"Learning technology, building useful projects, and turning
-                ideas into working software."</em
-              >
-            </div>
-            <p class="bio-para reveal-text">
-              I build practical web and software projects with HTML, CSS,
-              JavaScript, PHP, ASP.NET, Java and SQL. My goal is simple: keep
-              learning, keep building, and become a strong developer.
-            </p>
-            <div class="hero-cta">
-              <a
-                href="assets/resume.pdf"
-                download
-                class="btn btn-primary reveal-text"
-                style="animation-delay: 0.4s"
-                >Download Resume</a
-              >
-              <div class="social-row reveal-text" style="animation-delay: 0.5s">
-                <a
-                  href="https://www.linkedin.com/in/vipul-shekhva/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="LinkedIn"
-                  ><i class="fab fa-linkedin-in fa-lg"></i
-                ></a>
-                <a
-                  href="https://wa.me/918799179793"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="WhatsApp"
-                  ><i class="fab fa-whatsapp fa-lg"></i
-                ></a>
-                <a href="mailto:shekhvavipul21@gmail.com" title="Email"
-                  ><i class="fas fa-envelope fa-lg"></i
-                ></a>
-                <a
-                  href="https://www.instagram.com/vipul_shekhva"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Instagram"
-                  ><i class="fab fa-instagram fa-lg"></i
-                ></a>
-                <a href="tel:+918799179793" title="Call"
-                  ><i class="fas fa-phone-alt fa-lg"></i
-                ></a>
-              </div>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <div class="nav-drop">
+            <button type="button">Services +</button>
+            <div class="drop-menu">
+              <a href="video-editing.html">Video Editing</a>
+              <a href="post-production.html">Post Production</a>
+              <a href="ghost-editing.html">Ghost Editing</a>
+              <a href="mentoring.html">Mentoring</a>
+              <a href="30-seconds-of.html">30 Seconds Of…</a>
             </div>
           </div>
-          <div class="hero-right reveal-fade">
-            <div class="floating-card">
-              <div class="card-orbit"></div>
-              <div class="profile-card">
-                <div class="profile-image-wrap">
-                  <img
-                    src="assets/photo1.png"
-                    alt="Vipul Shekhva profile photo"
-                    class="profile-image"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'grid';
-                    "
-                  />
-                  <div class="profile-fallback">VS</div>
-                </div>
-                <div class="profile-meta">
-                  <span class="status-dot"></span
-                  ><span>AVAILABLE TO CONNECT</span>
-                </div>
-                <h2>Vipul Shekhva</h2>
-                <p>MCA Student</p>
-              </div>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="process.html">Process</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="blog.html">Blog</a>
+          <a class="btn btn-primary" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero container reveal">
+        <div>
+          <div class="eyebrow">Editing isn't just a skill. It's an art.</div>
+          <h1>
+            Turning <span class="display-gradient">moments</span> into motion.
+          </h1>
+          <p class="lead">
+            Arzify is a video editing studio for filmmakers, creators, wedding
+            professionals and brands who want footage that feels intentional,
+            cinematic and impossible to scroll past.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="portfolio.html"
+              >View selected work</a
+            >
+            <a class="btn btn-secondary" href="contact.html"
+              >Start a project →</a
+            >
+          </div>
+          <div class="stat-row">
+            <div class="stat">
+              <strong>2+</strong><span>years of editing experience</span>
             </div>
+            <div class="stat">
+              <strong>15+</strong><span>wedding stories touched</span>
+            </div>
+            <div class="stat">
+              <strong>5</strong><span>ways to work together</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="poster-frame">
+            <img
+              src="assets/arzify-poster.jpg"
+              alt="Arzify video editing studio poster"
+            />
+          </div>
+          <div class="float-card">
+            <strong>Bold edits. Clear impact.</strong
+            ><small>Reels · Shorts · Stories · Brand films</small>
           </div>
         </div>
       </section>
 
-      <section class="marquee-section" aria-label="Technology marquee">
+      <div class="marquee" aria-label="Arzify services">
         <div class="marquee-track">
-          <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i
-          ><span>JAVASCRIPT</span><i>✦</i><span>PHP</span><i>✦</i
-          ><span>ASP.NET</span><i>✦</i><span>JAVA</span><i>✦</i><span>SQL</span
-          ><i>✦</i><span>WORDPRESS</span><i>✦</i><span>GITHUB</span><i>✦</i>
-          <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i
-          ><span>JAVASCRIPT</span><i>✦</i><span>PHP</span><i>✦</i
-          ><span>ASP.NET</span><i>✦</i><span>JAVA</span><i>✦</i><span>SQL</span
-          ><i>✦</i><span>WORDPRESS</span><i>✦</i><span>GITHUB</span><i>✦</i>
+          <span>Adobe Premiere Pro</span><span>Final Cut Pro</span
+          ><span>DaVinci Resolve</span><span>Color Grading</span
+          ><span>Sound Design</span><span>VFX</span>
+          <span>Adobe Premiere Pro</span><span>Final Cut Pro</span
+          ><span>DaVinci Resolve</span><span>Color Grading</span
+          ><span>Sound Design</span><span>VFX</span>
         </div>
-      </section>
+      </div>
 
-      <section class="about section-padding" id="about">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-label">01. ABOUT ME</span>
-            <h2>Learning. Building. Improving.</h2>
-            <p class="subtitle">
-              A developer journey driven by curiosity and practical projects.
-            </p>
-          </div>
-          <div class="about-grid">
-            <div class="about-card">
-              <span class="card-number">01</span>
-              <h3>Who I Am</h3>
-              <p>
-                I'm Vipul Shekhva, an MCA student interested in programming,
-                databases, web technologies and application development.
-              </p>
-            </div>
-            <div class="about-card">
-              <span class="card-number">02</span>
-              <h3>What I Build</h3>
-              <p>
-                I enjoy turning ideas into usable websites and academic
-                projects, with a focus on clean interfaces and functional
-                features.
-              </p>
-            </div>
-            <div class="about-card">
-              <span class="card-number">03</span>
-              <h3>Where I'm Going</h3>
-              <p>
-                My long-term goal is to become a professional developer by
-                strengthening coding, problem-solving and real-world project
-                skills.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="tech section-padding" id="skills">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-label">02. SKILLS & TOOLKIT</span>
-            <h2>My Developer Toolkit.</h2>
-            <p class="subtitle">
-              Technologies and tools I use while learning and building.
-            </p>
-          </div>
-          <div class="toolkit-grid">
-            <div class="tool-card">
-              <div class="tool-icon">&lt;/&gt;</div>
-              <h3>Frontend</h3>
-              <p>
-                HTML, CSS, JavaScript, Bootstrap, responsive UI and animations.
-              </p>
-              <div class="tool-list">
-                <span>HTML</span><span>CSS</span><span>JS</span
-                ><span>Bootstrap</span>
-              </div>
-            </div>
-            <div class="tool-card">
-              <div class="tool-icon">PHP</div>
-              <h3>Backend</h3>
-              <p>PHP and ASP.NET fundamentals for dynamic web applications.</p>
-              <div class="tool-list">
-                <span>PHP</span><span>ASP.NET</span><span>J2EE</span>
-              </div>
-            </div>
-            <div class="tool-card">
-              <div class="tool-icon">SQL</div>
-              <h3>Database</h3>
-              <p>
-                Relational database concepts, queries, DBMS and application
-                connectivity.
-              </p>
-              <div class="tool-list">
-                <span>SQL</span><span>Oracle</span><span>DBMS</span
-                ><span>JDBC</span>
-              </div>
-            </div>
-            <div class="tool-card">
-              <div class="tool-icon">JV</div>
-              <h3>Programming</h3>
-              <p>
-                Object-oriented programming and problem solving with Java, C++
-                and Python.
-              </p>
-              <div class="tool-list">
-                <span>Java</span><span>C++</span><span>Python</span
-                ><span>OOP</span>
-              </div>
-            </div>
-            <div class="tool-card">
-              <div class="tool-icon">WP</div>
-              <h3>CMS & Tools</h3>
-              <p>WordPress, GitHub and practical project workflows.</p>
-              <div class="tool-list">
-                <span>WordPress</span><span>GitHub</span><span>SEO</span>
-              </div>
-            </div>
-            <div class="tool-card">
-              <div class="tool-icon">∞</div>
-              <h3>Mindset</h3>
-              <p>
-                Problem solving, continuous learning, experimentation and
-                project building.
-              </p>
-              <div class="tool-list">
-                <span>Learn</span><span>Build</span><span>Improve</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="stats section-padding">
-        <div class="container stats-container reveal-on-scroll">
+      <section class="section container reveal">
+        <div class="grid-2">
           <div>
-            <div class="stat-number">05+</div>
-            <div class="stat-label">Core Areas</div>
+            <div class="kicker">Meet Arzu</div>
+            <h2>
+              Video editor. Storyteller.
+              <span class="display-gradient">Your secret weapon.</span>
+            </h2>
+            <p class="lead">
+              Video editing is a powerful tool when it comes to moving an
+              audience. With over two years of editing experience, Arzu Dobariya
+              helps filmmakers and videographers across drama, documentary,
+              commercial, corporate and wedding work.
+            </p>
+            <p class="muted">
+              Many wedding videographers have trusted Arzify with their footage.
+              The goal is simple: respect your vision, sharpen the story and
+              return a finished film you are proud to show the world.
+            </p>
+            <a class="btn btn-secondary" href="about.html">More about me →</a>
           </div>
-          <div>
-            <div class="stat-number">04</div>
-            <div class="stat-label">Featured Projects</div>
-          </div>
-          <div>
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Learning Mindset</div>
+          <div class="image-card">
+            <img
+              src="assets/arzify-poster.jpg"
+              alt="Arzify editing workspace"
+            />
+            <div class="caption">
+              <strong>YOU SHOOT IT. WE ARZIFY IT.</strong>
+              <div class="muted small">
+                A bespoke editing partner that fits your workflow and rhythm.
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="projects section-padding" id="projects">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-label">03. PROJECTS</span>
-            <h2>Things I've Built.</h2>
-            <p class="subtitle">
-              Selected projects presented as a clean developer portfolio.
+      <section class="section section-alt">
+        <div class="container reveal">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Reclaim your time</div>
+              <h2>
+                Professional videos,
+                <span class="display-gradient">without the heavy lifting.</span>
+              </h2>
+            </div>
+            <p>
+              Create high-quality videos without spending your nights inside a
+              timeline. Choose a service that fits your project, from full edits
+              to finishing, ghost editing and mentoring.
             </p>
           </div>
-          <div class="project-grid">
-            <article class="project-card featured">
-              <div class="project-icon">01 / BANKING</div>
-              <h3>TRUEBANK</h3>
+          <div class="grid-3">
+            <a class="card" href="video-editing.html"
+              ><div class="icon">✦</div>
+              <h3>Video Editing</h3>
               <p>
-                A modern banking project concept focused on customer management,
-                accounts, transactions and a clean digital banking experience.
-              </p>
-              <div class="tags">
-                <span class="tag">ASP.NET</span><span class="tag">SQL</span
-                ><span class="tag">HTML</span>
-              </div>
-              <span class="project-arrow">↗</span>
-            </article>
-            <article class="project-card">
-              <div class="project-icon">02 / TRAVEL</div>
-              <h3>DESIRE TRAVELS</h3>
+                Story-first edits for short films, commercials, weddings, social
+                content and brand films.
+              </p></a
+            >
+            <a class="card" href="post-production.html"
+              ><div class="icon">◉</div>
+              <h3>Post Production</h3>
               <p>
-                A traveller-focused booking project designed around route
-                discovery, ticket booking, customer details and a smooth travel
-                experience.
-              </p>
-              <div class="tags">
-                <span class="tag">PHP</span><span class="tag">SQL</span
-                ><span class="tag">JavaScript</span>
-              </div>
-              <span class="project-arrow">↗</span>
-            </article>
-            <article class="project-card">
-              <div class="project-icon">03 / BOOKING</div>
-              <h3>BUS TRAVELLERS</h3>
+                Color grading, minor audio work, graphics, export and delivery —
+                the finishing layer that makes an edit feel complete.
+              </p></a
+            >
+            <a class="card" href="ghost-editing.html"
+              ><div class="icon">◌</div>
+              <h3>Ghost Editing</h3>
               <p>
-                A ticket booking system with customer records, routes, buses,
-                seats, travel dates, times, fares and booking management.
-              </p>
-              <div class="tags">
-                <span class="tag">C#</span><span class="tag">WinForms</span
-                ><span class="tag">SQL</span>
-              </div>
-              <span class="project-arrow">↗</span>
-            </article>
-            <article class="project-card">
-              <div class="project-icon">04 / WEB</div>
-              <h3>PORTFOLIO PROJECT</h3>
+                Private, style-matched editing that stays behind the scenes and
+                saves you valuable production time.
+              </p></a
+            >
+            <a class="card" href="mentoring.html"
+              ><div class="icon">↗</div>
+              <h3>Mentoring</h3>
               <p>
-                This responsive portfolio combines floating profile UI, orbit
-                animations, technology marquee, scroll reveals and interactive
-                contact features.
-              </p>
-              <div class="tags">
-                <span class="tag">HTML</span><span class="tag">CSS</span
-                ><span class="tag">JavaScript</span>
-              </div>
-              <span class="project-arrow">↗</span>
-            </article>
+                Film reviews and one-to-one support when you want to keep
+                control of the edit but need an expert eye.
+              </p></a
+            >
+            <a class="card" href="30-seconds-of.html"
+              ><div class="icon">▶</div>
+              <h3>30 Seconds Of…</h3>
+              <p>
+                Emotion-filled highlight films made from your home videos,
+                memories, milestones and celebrations.
+              </p></a
+            >
+            <a class="card" href="contact.html"
+              ><div class="icon">→</div>
+              <h3>Let's create</h3>
+              <p>
+                Tell Arzify about your project, your footage and your deadline.
+                Let's make something unforgettable.
+              </p></a
+            >
           </div>
         </div>
       </section>
 
-      <section class="journey section-padding" id="journey">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-label">04. JOURNEY</span>
-            <h2>From Student to Developer.</h2>
-            <p class="subtitle">
-              The next chapter is about turning learning into real-world
-              development.
+      <section class="section container reveal">
+        <div class="section-head">
+          <div>
+            <div class="kicker">The Arzify process</div>
+            <h2>
+              Clear from first
+              <span class="display-gradient">message to export.</span>
+            </h2>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3>Get in touch</h3>
+              <p>
+                Share your project, footage, goals and what you need from an
+                editor.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3>Finalise the details</h3>
+              <p>
+                Agree the scope, workflow and next steps so everyone has
+                clarity.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3>Send the footage</h3>
+              <p>
+                Use cloud storage or another delivery method that suits your
+                production.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h3>Edit, review, polish</h3>
+              <p>
+                Arzify dives into the footage while you provide feedback and
+                direction as needed.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div>
+              <h3>Export & deliver</h3>
+              <p>
+                Your final film is exported in the formats you need for clients,
+                web, social or broadcast.
+              </p>
+            </div>
+          </div>
+          <a class="btn btn-secondary" href="process.html"
+              >See the full process</a
+            >
+        </div>
+      </section>
+
+      <section class="section container reveal">
+        <div class="cta">
+          <div>
+            <div class="kicker">Ready when you are</div>
+            <h2>
+              Let's create something
+              <span class="display-gradient">unforgettable.</span>
+            </h2>
+            <p class="muted">
+              WhatsApp: +91 93210 20031 · Email: arzify06@gmail.com
             </p>
           </div>
-          <div class="journey-track">
-            <div class="journey-item complete">
-              <span class="journey-status">COMPLETED</span
-              ><strong>BCA 2023–2026</strong>
-              <p>
-                Foundation in computer applications, programming, databases and
-                web technologies.
-              </p>
-            </div>
-            <div class="journey-item current">
-              <span class="journey-status">NOW</span><strong>MCA</strong>
-              <p>
-                Deepening software development, application design and
-                problem-solving skills.
-              </p>
-            </div>
-            <div class="journey-item future">
-              <span class="journey-status">FUTURE</span
-              ><strong>DEVELOPER</strong>
-              <p>
-                Build production-ready software, grow professionally and create
-                useful digital products.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact section-padding" id="contact">
-        <div class="container reveal-on-scroll">
-          <div class="contact-wrapper">
-            <div class="contact-header">
-              <span class="section-label">05. CONTACT</span>
-              <h2>Let's Connect.</h2>
-              <p>
-                Have a project, idea or opportunity? Send a message and I'll get
-                back to you.
-              </p>
-            </div>
-            <div class="contact-info">
-              <div class="info-line">
-                <i data-lucide="map-pin"></i> Rajkot, Gujarat, India
-              </div>
-              <div class="info-line">
-                <i data-lucide="phone"></i> +91 8799179793
-              </div>
-              <div class="info-line">
-                <i data-lucide="mail"></i>
-                <a
-                  href="mailto:shekhvavipul21@gmail.com"
-                  style="color: inherit; text-decoration: none"
-                  >shekhvavipul21@gmail.com</a
-                >
-              </div>
-            </div>
-            <form id="contactForm" class="editorial-form">
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Portfolio Contact"
-              />
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="fullName">NAME</label
-                  ><input
-                    id="fullName"
-                    type="text"
-                    name="fullName"
-                    placeholder="Your name *"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">EMAIL</label
-                  ><input
-                    id="email"
-                    type="email"
-                    name="email"
-                    placeholder="you@example.com *"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="subject">SUBJECT</label
-                ><input
-                  id="subject"
-                  type="text"
-                  name="subject"
-                  placeholder="Project / opportunity / hello"
-                />
-              </div>
-              <div class="form-group">
-                <label for="message">MESSAGE</label
-                ><textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  placeholder="Tell me about it... *"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-full">
-                SEND MESSAGE →
-              </button>
-            </form>
-            <div class="social-links">
-              <a
-                href="https://www.linkedin.com/in/vipul-shekhva/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-card"
-                ><span><i class="fab fa-linkedin-in"></i></span><b>LinkedIn</b
-                ><small>Connect professionally</small></a
-              >
-              <a
-                href="https://www.instagram.com/vipul_shekhva"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-card"
-                ><span><i class="fab fa-instagram"></i></span><b>Instagram</b
-                ><small>Follow my updates</small></a
-              >
-              <a
-                href="https://wa.me/918799179793"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-card"
-                ><span><i class="fab fa-whatsapp"></i></span><b>WhatsApp</b
-                ><small>Message me directly</small></a
-              >
-              <a href="tel:+918799179793" class="social-card"
-                ><span><i class="fas fa-phone-alt"></i></span><b>Phone</b
-                ><small>+91 8799179793</small></a
-              >
-            </div>
-          </div>
+          <a class="btn btn-primary" href="contact.html">Contact Arzify →</a>
         </div>
       </section>
     </main>
-
     <footer class="footer">
-      <div class="container footer-content">
-        <p>© 2026 Vipul Shekhva</p>
-        <p>•Designed & Crafted by vipul shekhva.</p>
-        <a href="#home" class="back-to-top">↑ Back to top</a>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html"
+              ><img src="assets/arzify-logo.jpg" alt="Arzify" /><span
+                >Arzify</span
+              ></a
+            >
+            <p>
+              Turning moments into motion. Bespoke video editing, post
+              production and storytelling for creators, brands and filmmakers.
+            </p>
+          </div>
+          <div>
+            <div class="footer-title">Explore</div>
+            <p><a href="about.html">About</a></p>
+            <p><a href="portfolio.html">Portfolio</a></p>
+            <p><a href="process.html">Process</a></p>
+            <p><a href="blog.html">Blog</a></p>
+          </div>
+          <div>
+            <div class="footer-title">Services</div>
+            <p><a href="video-editing.html">Video Editing</a></p>
+            <p><a href="post-production.html">Post Production</a></p>
+            <p><a href="ghost-editing.html">Ghost Editing</a></p>
+            <p><a href="mentoring.html">Mentoring</a></p>
+          </div>
+          <div>
+            <div class="footer-title">Connect</div>
+            <p>
+              <a
+                href="https://www.instagram.com/arzifyy"
+                target="_blank"
+                rel="noopener"
+                >Instagram</a
+              >
+            </p>
+            <p>
+              <a
+                href="https://wa.me/919321020031"
+                target="_blank"
+                rel="noopener"
+                >WhatsApp</a
+              >
+            </p>
+            <p><a href="tel:+919321020031">+91 93210 20031</a></p>
+            <p><a href="mailto:arzify06@gmail.com">arzify06@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year>2026</span> Arzify. All rights reserved.</span
+          ><span>Bold edits. Clear impact.</span>
+        </div>
       </div>
     </footer>
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script>
-      lucide.createIcons();
-    </script>
     <script src="script.js"></script>
   </body>
 </html>

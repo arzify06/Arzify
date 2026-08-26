@@ -1,65 +1,149 @@
-document.addEventListener("DOMContentLoaded",()=>{
-  const navbar=document.getElementById("navbar"), progress=document.getElementById("scroll-progress");
-  const mobileToggle=document.getElementById("mobile-toggle"), mobileNav=document.getElementById("mobile-nav");
-  const toast=document.getElementById("toast"), glow=document.getElementById("cursor-glow");
 
-  // 1) Scroll progress + navbar state
-  const updateScroll=()=>{
-    navbar.classList.toggle("scrolled",window.scrollY>40);
-    const max=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-    progress.style.width=(max?window.scrollY/max*100:0)+"%";
+const CONTACT_EMAIL = "arzify06@gmail.com";
+
+const progress = document.querySelector(".progress");
+window.addEventListener("scroll", () => {
+  if (!progress) return;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+}, {passive:true});
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuBtn && navLinks) {
+  menuBtn.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+
+  const navItems = [...navLinks.querySelectorAll("a")];
+  const normalizePath = value => {
+    const clean = value.split("#")[0].split("?")[0].replace(/\/+$/, "");
+    return clean || "/";
   };
-  window.addEventListener("scroll",updateScroll,{passive:true}); updateScroll();
+  const currentPath = normalizePath(window.location.pathname);
 
-  // 2) Responsive mobile navigation
-  mobileToggle.addEventListener("click",()=>{
-    const open=mobileNav.classList.toggle("active");
-    mobileToggle.textContent=open?"✕":"☰"; mobileToggle.setAttribute("aria-expanded",open);
+  navItems.forEach(a => {
+    const linkPath = normalizePath(new URL(a.href, window.location.href).pathname);
+    const isHome = linkPath.endsWith("/index.html") || linkPath === "/";
+    const isCurrent = linkPath === currentPath || (isHome && (currentPath === "/" || currentPath.endsWith("/index.html")));
+    if (isCurrent) a.classList.add("active");
+
+    a.addEventListener("click", () => {
+      navItems.forEach(item => item.classList.remove("active"));
+      a.classList.add("active");
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    });
   });
-  document.querySelectorAll(".mobile-link").forEach(link=>link.addEventListener("click",()=>{
-    mobileNav.classList.remove("active"); mobileToggle.textContent="☰"; mobileToggle.setAttribute("aria-expanded","false");
-  }));
 
-  // 3) Scroll reveal
-  const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add("visible");revealObserver.unobserve(entry.target);}
-  }),{threshold:.12});
-  document.querySelectorAll(".reveal-on-scroll").forEach(el=>revealObserver.observe(el));
+  const dropdownButton = navLinks.querySelector(".nav-drop > button");
+  const dropdownLinks = [...navLinks.querySelectorAll(".nav-drop .drop-menu a")];
+  if (dropdownButton && dropdownLinks.some(a => a.classList.contains("active"))) {
+    dropdownButton.classList.add("active");
+  }
+}
 
-  // 4) Smooth anchor navigation
-  document.querySelectorAll('a[href^="#"]').forEach(anchor=>anchor.addEventListener("click",e=>{
-    const target=document.querySelector(anchor.getAttribute("href"));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"});}
-  }));
+const glow = document.querySelector(".cursor-glow");
+const finePointer = matchMedia("(pointer:fine)").matches;
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 5) Cursor glow
-  window.addEventListener("pointermove",e=>{
-    if(glow){glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";}
-  },{passive:true});
+if (glow && finePointer && !reducedMotion) {
+  window.addEventListener("pointermove", e => {
+    glow.style.left = `${e.clientX}px`;
+    glow.style.top = `${e.clientY}px`;
+  }, {passive:true});
+}
 
-  // 6) Active navigation link
-  const sections=[...document.querySelectorAll("main section[id]")];
-  const navLinks=[...document.querySelectorAll(".nav-links a")];
-  const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+entry.target.id));
+if (finePointer && !reducedMotion) {
+  const cursorRing = document.createElement("div");
+  const cursorDot = document.createElement("div");
+  cursorRing.className = "cursor-ring";
+  cursorDot.className = "cursor-dot";
+  document.body.append(cursorRing, cursorDot);
+  document.body.classList.add("has-custom-cursor");
+
+  let mouseX = -100, mouseY = -100;
+  let ringX = -100, ringY = -100;
+
+  window.addEventListener("pointermove", e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.transform = `translate3d(${mouseX}px,${mouseY}px,0)`;
+    cursorRing.style.opacity = "1";
+    cursorDot.style.opacity = "1";
+  }, {passive:true});
+
+  const animateCursor = () => {
+    ringX += (mouseX - ringX) * 0.16;
+    ringY += (mouseY - ringY) * 0.16;
+    cursorRing.style.transform = `translate3d(${ringX}px,${ringY}px,0)`;
+    requestAnimationFrame(animateCursor);
+  };
+  animateCursor();
+
+  const cursorTargets = "a,button,input,textarea,select,.card,.project,.btn,.poster-frame";
+  document.addEventListener("pointerover", e => {
+    if (e.target.closest(cursorTargets)) cursorRing.classList.add("cursor-hover");
+  });
+  document.addEventListener("pointerout", e => {
+    if (e.target.closest(cursorTargets)) cursorRing.classList.remove("cursor-hover");
+  });
+  window.addEventListener("blur", () => {
+    cursorRing.style.opacity = "0";
+    cursorDot.style.opacity = "0";
+  });
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
     }
-  }),{rootMargin:"-35% 0px -55% 0px"});
-  sections.forEach(s=>navObserver.observe(s));
-
-  // 7) Contact form: simple no-backend email delivery using mailto.
-  // Portfolio contact recipient.
-  const CONTACT_EMAIL="shekhvavipul21@gmail.com";
-  const form=document.getElementById("contactForm");
-  form.addEventListener("submit",e=>{
-    e.preventDefault();
-    const name=form.fullName.value.trim(), email=form.email.value.trim();
-    const subject=form.subject.value.trim()||"Portfolio Contact";
-    const message=form.message.value.trim();
-    if(!name||!email||!message){showToast("Please fill all required fields.");return;}
-        const body=`Name: ${name}\nEmail: ${email}\n\n${message}`;
-    window.location.href=`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    form.reset(); showToast("Opening your email app…");
   });
-  function showToast(text){toast.textContent=text;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),3500);}
-});
+}, {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
+
+const form = document.querySelector("#contactForm");
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = `${data.get("name") || ""} ${data.get("lastName") || ""}`.trim();
+    const email = data.get("email") || "";
+    const subject = data.get("subject") || "New Arzify project enquiry";
+    const message = data.get("message") || "";
+    const source = data.get("source") || "";
+    const notice = document.querySelector("#formNotice");
+
+    if (location.protocol !== "file:") {
+      try {
+        const response = await fetch("contact.php", { method: "POST", body: data });
+        const result = await response.json();
+        if (response.ok && result.ok) {
+          if (notice) {
+            notice.style.display = "block";
+            notice.textContent = result.message;
+          }
+          form.reset();
+          return;
+        }
+      } catch (err) {}
+    }
+
+    const body = `Name: ${name}\nEmail: ${email}\nHow they found Arzify: ${source}\n\n${message}`;
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (notice) {
+      notice.style.display = "block";
+      notice.textContent = `Opening your email app with the enquiry addressed to ${CONTACT_EMAIL}.`;
+    }
+    window.location.href = mailto;
+  });
+}
+
+const year = new Date().getFullYear();
+document.title = document.title.replace("{{YEAR}}", year);
