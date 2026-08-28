@@ -296,3 +296,49 @@ body.has-custom-cursor select{cursor:none}
   .nav-links>a,.nav-drop>button,.drop-menu a{transition:none}
   .nav-links>a.active,.nav-drop>button.active{animation:none}
 }
+
+
+/* === Back to top button === */
+.back-to-top{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(244,199,194,.45);
+  border-radius:50%;
+  background:linear-gradient(145deg,rgba(24,18,23,.96),rgba(10,8,12,.96));
+  color:#f4c7c2;
+  box-shadow:0 0 0 rgba(238,143,212,0),0 8px 28px rgba(0,0,0,.35),inset 0 0 18px rgba(238,143,212,.08);
+  font-size:20px;
+  line-height:1;
+  cursor:pointer;
+  z-index:2500;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(16px) scale(.88);
+  transition:opacity .3s ease,visibility .3s ease,transform .3s cubic-bezier(.22,1,.36,1),border-color .25s ease,box-shadow .25s ease,color .25s ease;
+}
+.back-to-top.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+}
+.back-to-top:hover{
+  color:#fff;
+  border-color:#ee8fd4;
+  box-shadow:0 0 22px rgba(238,143,212,.28),0 10px 32px rgba(0,0,0,.4),inset 0 0 18px rgba(238,143,212,.12);
+  transform:translateY(-4px) scale(1.05);
+}
+.back-to-top:active{transform:translateY(-1px) scale(.97)}
+.back-to-top .arrow{display:block;animation:backTopArrow 1.6s ease-in-out infinite}
+@keyframes backTopArrow{0%,100%{transform:translateY(2px)}50%{transform:translateY(-3px)}}
+@media (max-width:600px){
+  .back-to-top{right:16px;bottom:16px;width:44px;height:44px;font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .back-to-top{transition:none}
+  .back-to-top .arrow{animation:none}
+}

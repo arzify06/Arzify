@@ -147,3 +147,21 @@ if (form) {
 
 const year = new Date().getFullYear();
 document.title = document.title.replace("{{YEAR}}", year);
+
+
+// Back to top button
+const backToTop = document.querySelector("#backToTop");
+if (backToTop) {
+  const toggleBackToTop = () => {
+    backToTop.classList.toggle("show", window.scrollY > 450);
+  };
+  toggleBackToTop();
+  window.addEventListener("scroll", toggleBackToTop, {passive:true});
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+    });
+  });
+}
